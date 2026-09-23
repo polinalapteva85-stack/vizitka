@@ -133,36 +133,9 @@
         .step span { color: var(--muted); }
 
         .form-box { background: var(--card); border: 1px solid var(--line); padding: 34px 30px; }
-        .form-box input, .form-box textarea {
-            width: 100%;
-            font-family: inherit;
-            font-size: 16px;
-            color: var(--ink);
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: 2px;
-            padding: 14px 16px;
-            margin-bottom: 14px;
-        }
-        .form-box textarea { height: 110px; resize: vertical; }
-        .form-box input:focus, .form-box textarea:focus { outline: 2px solid var(--steel); outline-offset: -1px; }
-        .form-box button {
-            width: 100%;
-            font-family: inherit;
-            font-size: 16px;
-            font-weight: 500;
-            color: #fff;
-            background: var(--steel);
-            border: 0;
-            border-radius: 2px;
-            padding: 16px;
-            cursor: pointer;
-        }
-        .form-box button:disabled { opacity: .6; cursor: default; }
-        .result { text-align: center; padding: 14px 0; }
-        .result b { display: block; font-size: 19px; margin-bottom: 10px; }
-        .result p { color: var(--muted); margin: 0 0 22px; }
-        .hidden { display: none; }
+        .contact-note { color: var(--muted); margin: 0 0 22px; }
+        .contact-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+        .contact-btns .btn { flex: 1 1 200px; text-align: center; white-space: nowrap; padding-left: 14px; padding-right: 14px; }
 
         footer { padding: 54px 0 64px; }
         .footer-row { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; }
@@ -252,7 +225,7 @@
             <div class="svc-row">
                 <div class="svc-name">Лендинг</div>
                 <div class="svc-price">от 10 000 ₽</div>
-                <div class="svc-desc">Одностраничный сайт про ваше дело: тексты, оформление и форма, из которой заявка приходит вам в мессенджер. Пример — страница, которую вы сейчас читаете.</div>
+                <div class="svc-desc">Одностраничный сайт про ваше дело: тексты, оформление и кнопки, по которым клиент в один клик пишет вам в мессенджер. Пример — страница, которую вы сейчас читаете.</div>
             </div>
             <div class="svc-row">
                 <div class="svc-name">Автоматизация рутины</div>
@@ -279,8 +252,8 @@
             <div class="work-body">
                 <div class="mono">Лендинг · вы на нём находитесь</div>
                 <h3>Этот сайт</h3>
-                <p>Страница, которую вы сейчас листаете, — моя работа: тексты, оформление, картинки и форма собраны мной от начала до конца.</p>
-                <p>Заявка из формы приходит мне в Telegram за секунду. А если отправка вдруг сорвётся, человек сразу это увидит и сможет написать мне напрямую — вместо того чтобы уйти с мыслью, что заявка ушла.</p>
+                <p>Страница, которую вы сейчас листаете, — моя работа: тексты, оформление и картинки собраны мной от начала до конца.</p>
+                <p>Написать мне можно в один клик — во ВКонтакте или MAX: кнопка сразу открывает переписку со мной, без анкет и ожидания.</p>
             </div>
         </article>
 
@@ -315,7 +288,7 @@
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
-                <div><b>Вы рассказываете задачу</b><span>Через форму ниже или сразу в Telegram. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
+                <div><b>Вы рассказываете задачу</b><span>Во ВКонтакте или MAX — кнопки ниже. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
@@ -335,24 +308,10 @@
     <div class="wrap">
         <h2>Расскажите про свою задачу</h2>
         <div class="form-box">
-            <div id="formContainer">
-                <form id="challengeForm">
-                    <input type="text" id="leadName" placeholder="Как вас зовут" required>
-                    <input type="text" id="leadEmail" placeholder="Телеграм, телефон или email" required>
-                    <textarea id="leadMessage" placeholder="Что отнимает у вас время?" required></textarea>
-                    <button type="submit" id="submitBtn">Отправить</button>
-                </form>
-            </div>
-            <div id="successBtn" class="hidden result">
-                <b>Заявка принята</b>
-                <p>Отвечу в течение дня. Если удобнее сразу написать — вот мой Telegram.</p>
-                <a id="tgSuccessLink" href="https://t.me/Polina08198" target="_blank" rel="noopener" class="btn">Написать в Telegram</a>
-            </div>
-            <div id="failBox" class="hidden result">
-                <b>Заявка не отправилась</b>
-                <p>Похоже, связь прервалась. Нажмите кнопку — текст заявки уже готов, останется отправить.</p>
-                <a id="tgFallbackLink" href="https://t.me/Polina08198" target="_blank" rel="noopener" class="btn">Написать мне в Telegram</a>
-            </div>
+            <p class="contact-note">Напишите, где вам удобнее: коротко, что отнимает у вас время. Отвечу в течение дня.</p>
+            <div class="contact-btns">
+                <a href="https://vk.me/club180882670" target="_blank" rel="noopener" class="btn" data-goal="contact_vk">Написать во ВКонтакте</a>
+                <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener" class="btn" data-goal="contact_max">Написать в MAX</a>            </div>
         </div>
     </div>
 </section>
@@ -365,60 +324,16 @@
             <div style="font-weight:600">Полина Лаптева</div>
             <div class="mono" style="margin-top:4px">Системы против рутины</div>
         </div>
-        <div><a href="https://t.me/Polina08198" target="_blank" rel="noopener">Telegram · @Polina08198</a></div>
+        <div class="footer-links"><a href="https://vk.me/club180882670" target="_blank" rel="noopener">ВКонтакте</a> · <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener">MAX</a></div>
     </div>
 </footer>
 
 <script>
-    // Заявки уходят через почтальона на Cloudflare, он передаёт их в Telegram Полине.
-    // Ключ от бота лежит в настройках почтальона, на этой странице его нет.
-    const RELAY = 'https://zayavki.neuroatelie.workers.dev';
-    const TG_USER = 'Polina08198';
-
-    document.getElementById('challengeForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('submitBtn');
-        const name = document.getElementById('leadName').value.trim();
-        const contact = document.getElementById('leadEmail').value.trim();
-        const message = document.getElementById('leadMessage').value.trim();
-
-        btn.disabled = true;
-        btn.innerText = 'Отправляю...';
-
-        // Запасной путь: если отправка не удалась, человек допишет сам — текст уже готов.
-        const draft = 'https://t.me/' + TG_USER + '?text=' + encodeURIComponent(
-            'Здравствуйте! Заявка с сайта.\nИмя: ' + name + '\nЗадача: ' + message
-        );
-        document.getElementById('tgFallbackLink').href = draft;
-
-        let delivered = false;
-        // Ждём ответа 10 секунд, дальше показываем запасной путь вместо зависшей кнопки.
-        const stopWaiting = new AbortController();
-        const timer = setTimeout(() => stopWaiting.abort(), 10000);
-        try {
-            const res = await fetch(RELAY, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: name, contact: contact, message: message }),
-                signal: stopWaiting.signal
-            });
-            const data = await res.json();
-            delivered = res.ok && data.ok === true;
-        } catch (err) {
-            delivered = false;
-        } finally {
-            clearTimeout(timer);
-        }
-
-        document.getElementById('formContainer').classList.add('hidden');
-        if (delivered) {
-            document.getElementById('successBtn').classList.remove('hidden');
-            if (window.ym) ym(109746780, 'reachGoal', 'lead_sent');
-        } else {
-            // Не показываем "принято", когда заявка никуда не ушла.
-            document.getElementById('failBox').classList.remove('hidden');
-            if (window.ym) ym(109746780, 'reachGoal', 'lead_failed');
-        }
+    // Кнопки связи: Метрика отмечает, в какой мессенджер пошёл человек.
+    document.querySelectorAll('[data-goal]').forEach(function (a) {
+        a.addEventListener('click', function () {
+            if (window.ym) ym(109746780, 'reachGoal', a.dataset.goal);
+        });
     });
 </script>
 </body>
