@@ -85,7 +85,8 @@
             width: 12px; height: 1px; background: var(--steel);
         }
 
-        .about { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center; }
+        .about { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center;
+                 background: var(--card); border: 1px solid var(--line); padding: 36px 40px; }
         .about-name { margin: 0 0 4px; }
         .about-role { font-family: 'Roboto Mono', monospace; font-size: 14px; color: var(--steel); padding-bottom: 18px; margin-bottom: 22px; border-bottom: 2px solid var(--line); display: inline-block; }
         .about-hook { font-size: 20px; line-height: 1.5; color: var(--ink); border-left: 3px solid var(--steel); padding-left: 18px; margin: 0 0 20px; }
@@ -164,7 +165,7 @@
             .hero-photo::before { inset: 10px -10px -10px 10px; }
             .lead { font-size: 17px; }
             .work { grid-template-columns: 1fr; }
-            .about { grid-template-columns: 1fr; gap: 24px; }
+            .about { grid-template-columns: 1fr; gap: 24px; padding: 20px 20px 26px; }
             .about-photo { order: -1; }
             .about-hook { font-size: 18px; }
             .work img { height: auto; }
