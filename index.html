@@ -261,20 +261,42 @@ footer.f-dark .mono, footer.f-ink .mono { color:#9FB0C2; }
     .svc .svc-price { order:3; padding-top:14px; border-top:1px dashed var(--line); font-size:17px; }
 }
 @media (min-width:601px) and (max-width:860px) { .svc { grid-template-columns:repeat(2,1fr); } }
+
+/* плашка про cookie */
+.cookie { position:fixed; left:16px; right:16px; bottom:16px; z-index:60; max-width:560px; margin:0 auto;
+          background:#fff; color:var(--ink); border:1px solid var(--line); border-top:3px solid var(--steel);
+          box-shadow:0 8px 28px rgba(30,36,44,.18); padding:18px 20px; font-size:15px; line-height:1.5; }
+.cookie[hidden] { display:none; }
+.cookie p { margin:0 0 14px; color:var(--muted); }
+.cookie a { color:var(--steel); }
+.cookie-btns { display:flex; gap:10px; flex-wrap:wrap; }
+.cookie-btns button { font:inherit; font-weight:500; padding:10px 22px; border-radius:2px; cursor:pointer; border:1px solid var(--steel); }
+.cookie-yes { background:var(--steel); color:#fff; }
+.cookie-no { background:transparent; color:var(--steel); }
+body.cookie-open .mbar { display:none; }
+@media (max-width:600px) {
+    .cookie { left:10px; right:10px; bottom:10px; padding:12px 14px; font-size:13.5px; }
+    .cookie p { margin-bottom:10px; }
+    .cookie-btns button { padding:8px 16px; flex:1; }
+}
+.legal { margin-top:22px; font-size:14px; color:#9FB0C2; }
+.legal a, .legal button { color:#9FB0C2; font:inherit; background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
 </style>
 
-    <!-- Yandex.Metrika counter -->
+    <!-- Yandex.Metrika counter: запускается только после «Принять» в плашке про cookie -->
     <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109746780', 'ym');
-
-        ym(109746780, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+        function startMetrika() {
+            if (window.ym) return;
+            (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109746780', 'ym');
+            ym(109746780, 'init', {ssr:true, webvisor:false, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+        }
+        try { if (localStorage.getItem('cookie-choice') === 'yes') startMetrika(); } catch (e) {}
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/109746780" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 </head>
 <body>
@@ -501,11 +523,20 @@ footer.f-dark .mono, footer.f-ink .mono { color:#9FB0C2; }
         </div>
         <div class="footer-links"><a href="https://vk.me/club180882670" target="_blank" rel="noopener">ВКонтакте</a> · <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener">MAX</a></div>
     </div>
+    <div class="wrap legal"><a href="politika.html">Политика конфиденциальности</a> · <button type="button" id="cookie-settings">Настройки cookie</button></div>
 </footer>
 
 <div class="mbar" aria-label="Написать мне"><span class="mbar-t">Написать мне:</span>
     <a href="https://vk.me/club180882670" target="_blank" rel="noopener" class="btn" data-goal="contact_vk_bar">ВКонтакте</a>
     <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener" class="btn" data-goal="contact_max_bar">MAX</a>
+</div>
+
+<div class="cookie" id="cookie" hidden>
+    <p>Сайт использует файлы cookie Яндекс Метрики, чтобы считать посещения. Подробнее — в <a href="politika.html">политике конфиденциальности</a>.</p>
+    <div class="cookie-btns">
+        <button type="button" class="cookie-yes">Принять</button>
+        <button type="button" class="cookie-no">Отказаться</button>
+    </div>
 </div>
 
 <script>
@@ -526,6 +557,22 @@ footer.f-dark .mono, footer.f-ink .mono { color:#9FB0C2; }
         function upd() { bar.classList.toggle('show', !heroVis && !zVis); }
         new IntersectionObserver(function (e) { heroVis = e[0].isIntersecting; upd(); }).observe(hero);
         new IntersectionObserver(function (e) { zVis = e[0].isIntersecting; upd(); }).observe(z);
+    })();
+
+    // Плашка про cookie: Метрика стартует только после «Принять», выбор запоминается.
+    (function () {
+        var box = document.getElementById('cookie');
+        function get() { try { return localStorage.getItem('cookie-choice'); } catch (e) { return null; } }
+        function set(v) { try { localStorage.setItem('cookie-choice', v); } catch (e) {} }
+        function show() { box.hidden = false; document.body.classList.add('cookie-open'); }
+        function hide() { box.hidden = true; document.body.classList.remove('cookie-open'); }
+        box.querySelector('.cookie-yes').onclick = function () { set('yes'); hide(); startMetrika(); };
+        box.querySelector('.cookie-no').onclick = function () {
+            var was = get(); set('no'); hide();
+            if (was === 'yes') location.reload();
+        };
+        document.getElementById('cookie-settings').onclick = show;
+        if (!get()) show();
     })();
 </script>
 </body>
