@@ -362,6 +362,18 @@ details.faq-row summary::after { content:''; position:absolute; right:8px; top:5
 details.faq-row[open] summary::after { transform:rotate(-135deg); margin-top:-2px; }
 details.faq-row summary:hover { color:var(--steel); }
 details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
+
+/* работа с видео: клип ВК грузится только по нажатию */
+.clip { background:#000; display:flex; justify-content:center; }
+.clip-poster, .clip iframe { display:block; width:259px; height:460px; border:0; padding:0; margin:0; }
+.clip-poster { position:relative; cursor:pointer; background:#000; }
+.clip-poster img { width:100%; height:100%; object-fit:cover; display:block; }
+.clip-label { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); white-space:nowrap;
+    background:var(--steel); color:#fff; font:600 16px 'Golos Text', sans-serif; padding:13px 22px 13px 18px; border-radius:40px;
+    display:flex; align-items:center; gap:10px; box-shadow:0 0 0 6px rgba(47,93,140,.35), 0 10px 26px rgba(0,0,0,.45); }
+.clip-label::before { content:''; width:0; height:0; border-left:12px solid #fff; border-top:8px solid transparent; border-bottom:8px solid transparent; }
+.clip-poster:hover .clip-label { background:#26496E; }
+@media (max-width:600px) { .clip-poster, .clip iframe { width:100%; max-width:320px; height:auto; aspect-ratio:9/16; } }
 </style>
 
     <!-- Yandex.Metrika counter: запускается только после «Принять» в плашке про cookie -->
@@ -474,6 +486,27 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
                 </ul>
                 <p>Цену за такую работу называю после разговора.</p>
                 <p><a class="more" href="ikar.html">Посмотреть, как делалась эта работа →</a></p>
+            </div>
+        </article>
+
+        <article class="work">
+            <div class="clip">
+                <button type="button" class="clip-poster" data-src="https://vkvideo.ru/video_ext.php?oid=-180882670&amp;id=456239164&amp;hd=2&amp;autoplay=1" aria-label="Смотреть видео: как работает Нейро-пилот">
+                    <img src="neuropilot-poster.webp" alt="Нейро-пилот: статистика сообщества и кнопки «Пост», «План 7 дней», «Сторис»" width="540" height="960" loading="lazy">
+                    <span class="clip-label">Смотреть видео</span>
+                </button>
+            </div>
+            <div class="work-body">
+                <div class="work-task">Задача: не придумывать каждый день, о&nbsp;чём писать в&nbsp;соцсетях</div>
+                <h3>Нейро-пилот&nbsp;— помощник для соцсетей</h3>
+                <p>Моя собственная программа: сделала для себя и&nbsp;веду с&nbsp;её помощью своё сообщество ВКонтакте.</p>
+                <div class="work-done">Что сделано:</div>
+                <ul class="work-list">
+                    <li>смотрит статистику сообщества: охват, лайки, репосты;</li>
+                    <li>придумывает посты в&nbsp;нужном настроении и&nbsp;стиле, сторис и&nbsp;план на&nbsp;неделю;</li>
+                    <li>публикует посты с&nbsp;картинками в&nbsp;ВКонтакте&nbsp;— сразу или в&nbsp;отложенные.</li>
+                </ul>
+                <p>Такую программу можно собрать и&nbsp;под ваше дело.</p>
             </div>
         </article>
 
@@ -675,6 +708,19 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
         document.getElementById('cookie-settings').onclick = show;
         if (!get()) show();
     })();
+
+    // Клип ВК: плеер загружается только после нажатия, до этого — картинка-заставка.
+    document.querySelectorAll('.clip-poster').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var f = document.createElement('iframe');
+            f.src = b.dataset.src;
+            f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock';
+            f.setAttribute('allowfullscreen', '');
+            f.title = 'Нейро-пилот — видео';
+            b.replaceWith(f);
+            if (window.ym) ym(109746780, 'reachGoal', 'video_neuropilot');
+        });
+    });
 </script>
 </body>
 </html>
