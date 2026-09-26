@@ -319,6 +319,15 @@ body.cookie-open .mbar { display:none; }
     .ba-files { font-size:14px; margin-bottom:16px; }
     .ba-note { font-size:16px; }
 }
+
+h2 { font-size:34px; line-height:1.15; margin-bottom:34px; }
+.about-name { font-size:34px; }
+.kicker { font-family:'Roboto Mono', monospace; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--steel); margin-bottom:10px;
+          display:flex; align-items:center; gap:12px; }
+.kicker::after { content:''; flex:0 0 56px; height:2px; background:var(--steel); }
+.b-dark .kicker, .b-ink .kicker { color:#8FB6DD; }
+.b-dark .kicker::after, .b-ink .kicker::after { background:#8FB6DD; }
+@media (max-width:600px) { h2, .about-name { font-size:27px; } }
 </style>
 
     <!-- Yandex.Metrika counter: запускается только после «Принять» в плашке про cookie -->
@@ -356,6 +365,7 @@ body.cookie-open .mbar { display:none; }
 
 <section class="b-paper">
     <div class="wrap">
+        <div class="kicker">01 · С чем приходят</div>
         <h2>Знакомо?</h2>
         <ul class="needs">
             <li>Каждый раз вручную собираете одно и то же — прайс, договор, отчёт, пост.</li>
@@ -371,6 +381,7 @@ body.cookie-open .mbar { display:none; }
 
 <section class="b-pale" id="uslugi">
     <div class="wrap">
+        <div class="kicker">02 · Услуги</div>
         <h2>Что я делаю</h2>
         <div class="svc">
             <div class="svc-row">
@@ -412,6 +423,7 @@ body.cookie-open .mbar { display:none; }
 
 <section class="b-paper" id="raboty">
     <div class="wrap">
+        <div class="kicker">03 · Работы</div>
         <h2>Мои работы</h2>
 
         <article class="work">
@@ -466,6 +478,7 @@ body.cookie-open .mbar { display:none; }
 
 <section class="b-dark" id="o-sebe">
     <div class="wrap">
+        <div class="kicker">04 · О себе</div>
         <div class="about">
             <div class="about-text">
                 <h2 class="about-name">Полина Лаптева</h2>
@@ -485,6 +498,7 @@ body.cookie-open .mbar { display:none; }
 
 <section class="b-pale">
     <div class="wrap">
+        <div class="kicker">05 · Порядок работы</div>
         <h2>Как мы поработаем</h2>
         <div class="steps">
             <div class="step">
@@ -511,6 +525,7 @@ body.cookie-open .mbar { display:none; }
 
 <section class="b-paper" id="voprosy">
     <div class="wrap">
+        <div class="kicker">06 · Вопросы</div>
         <h2>Частые вопросы</h2>
         <div class="faq">
             <div class="faq-row">
@@ -553,6 +568,7 @@ body.cookie-open .mbar { display:none; }
 
 <section class="b-dark" id="zayavka">
     <div class="wrap">
+        <div class="kicker">07 · Связь</div>
         <h2>Расскажите про свою задачу</h2>
         <div class="form-box">
             <p class="contact-note">Напишите, где вам удобнее: коротко, что отнимает у вас время. Отвечу в течение дня.</p>
