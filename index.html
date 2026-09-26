@@ -183,7 +183,74 @@
             .svc-name { font-size: 20px; }
             .svc-price { font-size: 15px; }
         }
-    </style>
+    
+:root { --deep:#223F5C; --pale:#E6EDF5; --lightsteel:#8FB6DD; }
+hr.stitch { display:none; }
+/* обложка — градиент №5 на весь экран */
+.hero { background: linear-gradient(120deg,#1E242C 0%,#223F5C 55%,#2F5D8C 100%); color:#fff;
+        min-height:100vh; min-height:100svh; }
+.hero h1 { color:#fff; }
+.hero .lead { color:#D5DEE8; }
+.hero .mono { color:var(--lightsteel); }
+.hero .btn { background:var(--paper); color:var(--ink); }
+.hero .btn:hover { background:#fff; }
+.hero-also { color:#B8C6D6; }
+.hero-also a { color:#fff; border-bottom-color:rgba(255,255,255,.4); }
+.hero-photo::before { border-color:var(--lightsteel); }
+@media (max-width:600px){ .hero { min-height:100svh; padding:36px 0 48px; } }
+
+.b-paper { background:var(--paper); }
+.b-pale  { background:var(--pale); }
+.b-white { background:#fff; }
+.b-dark  { background:var(--deep); color:#fff; }
+.b-ink   { background:var(--ink); color:#fff; }
+.b-dark h2, .b-ink h2 { color:#fff; }
+.b-dark .needs li, .b-ink .needs li,
+.b-dark .svc-desc, .b-ink .svc-desc, .b-dark .svc-note, .b-ink .svc-note,
+.b-dark .step span, .b-ink .step span { color:#C9D6E3; }
+.b-dark .svc-row, .b-ink .svc-row { border-color:rgba(255,255,255,.22); }
+.b-dark .svc-price, .b-ink .svc-price { color:var(--lightsteel); }
+.b-dark .step-num, .b-ink .step-num { background:transparent; color:#fff; border-color:var(--lightsteel); }
+.b-dark .needs li::before, .b-ink .needs li::before { background:var(--lightsteel); }
+/* «о себе» на тёмном — без белой карточки */
+.b-dark .about, .b-ink .about { background:transparent; border:0; padding:0; }
+.b-dark .about-role, .b-ink .about-role { color:var(--lightsteel); border-color:rgba(255,255,255,.25); }
+.b-dark .about-text p, .b-ink .about-text p { color:#C9D6E3; }
+.b-dark .about-text p.about-hook, .b-ink .about-text p.about-hook { color:#fff; border-left-color:var(--lightsteel); }
+.b-dark .about-photo img, .b-ink .about-photo img { border-color:rgba(255,255,255,.25); }
+.b-dark .btn, .b-ink .btn { background:var(--paper); color:var(--ink); }
+.b-dark .form-box .btn, .b-ink .form-box .btn { background:var(--steel); color:#fff; }
+/* белые карточки на бледной стали */
+.b-pale .about, .b-pale .work, .b-pale .nopromise, .b-pale .form-box { border-color:#D3DDE8; }
+.b-pale .svc-row { border-color:#B9C6D4; }
+/* заявка + подвал одним тёмным блоком до низа */
+.b-dark + footer, footer.f-dark { background:var(--deep); color:#fff; padding-top:10px; }
+footer.f-ink { background:var(--ink); color:#fff; padding-top:10px; }
+footer.f-dark a, footer.f-ink a { color:var(--lightsteel); }
+footer.f-dark .mono, footer.f-ink .mono { color:#9FB0C2; }
+#zayavka.b-dark, #zayavka.b-ink { padding-bottom:40px; }
+
+/* строчка-шов вдоль верхнего края светлых полос */
+.b-paper, .b-pale { position:relative; }
+.b-paper::before, .b-pale::before { content:''; position:absolute; left:0; right:0; top:12px; height:1px;
+    background-image:repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 12px); }
+.b-pale::before { background-image:repeating-linear-gradient(to right, #B3C2D2 0 6px, transparent 6px 12px); }
+
+/* кнопки связи внизу экрана — только на телефоне */
+.mbar { display:none; }
+@media (max-width:600px) {
+    .mbar { display:flex; gap:10px; position:fixed; left:0; right:0; bottom:0; z-index:50;
+            padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+            background:var(--ink); border-top:1px solid rgba(143,182,221,.35);
+            transform:translateY(110%); transition:transform .25s; }
+    .mbar.show { transform:none; }
+    .mbar { align-items:center; }
+    .mbar-t { font-size:13px; color:#C9D6E3; white-space:nowrap; }
+    .mbar .btn { flex:1; text-align:center; padding:13px 8px; font-size:15px; white-space:nowrap; }
+    .mbar .btn + .btn { background:var(--paper); color:var(--ink); }
+    footer { padding-bottom:110px; }
+}
+</style>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -216,7 +283,7 @@
 
 <hr class="stitch">
 
-<section>
+<section class="b-paper">
     <div class="wrap">
         <h2>Знакомо?</h2>
         <ul class="needs">
@@ -231,7 +298,7 @@
 
 <hr class="stitch">
 
-<section id="uslugi">
+<section class="b-pale" id="uslugi">
     <div class="wrap">
         <h2>Что я делаю</h2>
         <div class="svc">
@@ -272,7 +339,7 @@
 
 <hr class="stitch">
 
-<section id="raboty">
+<section class="b-paper" id="raboty">
     <div class="wrap">
         <h2>Мои работы</h2>
 
@@ -313,7 +380,7 @@
 
 <hr class="stitch">
 
-<section id="o-sebe">
+<section class="b-dark" id="o-sebe">
     <div class="wrap">
         <div class="about">
             <div class="about-text">
@@ -332,13 +399,13 @@
 
 <hr class="stitch">
 
-<section>
+<section class="b-pale">
     <div class="wrap">
         <h2>Как мы поработаем</h2>
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
-                <div><b>Вы рассказываете задачу</b><span>Во ВКонтакте или MAX — кнопки ниже. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
+                <div><b>Вы рассказываете задачу</b><span>В ВКонтакте или MAX — кнопки ниже. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
@@ -358,7 +425,7 @@
 
 <hr class="stitch">
 
-<section id="voprosy">
+<section class="b-paper" id="voprosy">
     <div class="wrap">
         <h2>Частые вопросы</h2>
         <div class="faq">
@@ -400,22 +467,22 @@
 
 <hr class="stitch">
 
-<section id="zayavka">
+<section class="b-dark" id="zayavka">
     <div class="wrap">
         <h2>Расскажите про свою задачу</h2>
         <div class="form-box">
             <p class="contact-note">Напишите, где вам удобнее: коротко, что отнимает у вас время. Отвечу в течение дня.</p>
-            <p class="contact-note">Во ВКонтакте вы попадёте в сообщество «НейроАтелье» — это я.</p>
+            <p class="contact-note">В ВКонтакте вы попадёте в сообщество «НейроАтелье» — это я.</p>
             <div class="contact-btns">
-                <a href="https://vk.me/club180882670" target="_blank" rel="noopener" class="btn" data-goal="contact_vk">Написать во ВКонтакте</a>
-                <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener" class="btn" data-goal="contact_max">Написать в MAX</a>            </div>
+                <a href="https://vk.me/club180882670" target="_blank" rel="noopener" class="btn" data-goal="contact_vk">ВКонтакте</a>
+                <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener" class="btn" data-goal="contact_max">MAX</a>            </div>
         </div>
     </div>
 </section>
 
 <hr class="stitch">
 
-<footer>
+<footer class="f-dark">
     <div class="wrap footer-row">
         <div>
             <div style="font-weight:600">Полина Лаптева</div>
@@ -425,6 +492,11 @@
     </div>
 </footer>
 
+<div class="mbar" aria-label="Написать мне"><span class="mbar-t">Написать мне:</span>
+    <a href="https://vk.me/club180882670" target="_blank" rel="noopener" class="btn" data-goal="contact_vk_bar">ВКонтакте</a>
+    <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener" class="btn" data-goal="contact_max_bar">MAX</a>
+</div>
+
 <script>
     // Кнопки связи: Метрика отмечает, в какой мессенджер пошёл человек.
     document.querySelectorAll('[data-goal]').forEach(function (a) {
@@ -432,6 +504,18 @@
             if (window.ym) ym(109746780, 'reachGoal', a.dataset.goal);
         });
     });
+
+    // Полоса связи на телефоне: появляется после первого экрана, прячется у блока заявки.
+    (function () {
+        var bar = document.querySelector('.mbar');
+        var hero = document.querySelector('.hero');
+        var z = document.getElementById('zayavka');
+        if (!bar || !('IntersectionObserver' in window)) return;
+        var heroVis = true, zVis = false;
+        function upd() { bar.classList.toggle('show', !heroVis && !zVis); }
+        new IntersectionObserver(function (e) { heroVis = e[0].isIntersecting; upd(); }).observe(hero);
+        new IntersectionObserver(function (e) { zVis = e[0].isIntersecting; upd(); }).observe(z);
+    })();
 </script>
 </body>
 </html>
