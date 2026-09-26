@@ -352,6 +352,16 @@ h2 { font-size:34px; line-height:1.15; margin-bottom:34px; }
 
 /* картинка работы ниже на компьютере целиком, без обрезки; по бокам тёмная подложка */
 @media (min-width:601px) { .work > img { height:460px; object-fit:contain; background:#16212C; } }
+
+/* вопросы раскрываются по нажатию */
+details.faq-row { padding:0; }
+details.faq-row summary { list-style:none; cursor:pointer; padding:18px 40px 18px 0; margin:0; position:relative; }
+details.faq-row summary::-webkit-details-marker { display:none; }
+details.faq-row summary::after { content:''; position:absolute; right:8px; top:50%; width:10px; height:10px; margin-top:-7px;
+    border-right:2px solid var(--steel); border-bottom:2px solid var(--steel); transform:rotate(45deg); transition:transform .2s; }
+details.faq-row[open] summary::after { transform:rotate(-135deg); margin-top:-2px; }
+details.faq-row summary:hover { color:var(--steel); }
+details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 </style>
 
     <!-- Yandex.Metrika counter: запускается только после «Принять» в плашке про cookie -->
@@ -552,34 +562,34 @@ h2 { font-size:34px; line-height:1.15; margin-bottom:34px; }
         <div class="kicker">06 · Вопросы</div>
         <h2>Частые вопросы</h2>
         <div class="faq">
-            <div class="faq-row">
-                <div class="faq-q">Нужно ли разбираться в технике?</div>
+            <details class="faq-row">
+                <summary class="faq-q">Нужно ли разбираться в технике?</summary>
                 <div class="faq-a">Нет. Программистом быть не нужно — достаточно объяснить задачу своими словами.</div>
-            </div>
-            <div class="faq-row">
-                <div class="faq-q">Сколько стоит первый разговор?</div>
+            </details>
+            <details class="faq-row">
+                <summary class="faq-q">Сколько стоит первый разговор?</summary>
                 <div class="faq-a">Нисколько. Он бесплатный и ни к чему вас не обязывает.</div>
-            </div>
-            <div class="faq-row">
-                <div class="faq-q">Как проходит оплата?</div>
+            </details>
+            <details class="faq-row">
+                <summary class="faq-q">Как проходит оплата?</summary>
                 <div class="faq-a">50% до начала работы, остальные 50% — после того, как я сдам готовую работу.</div>
-            </div>
-            <div class="faq-row">
-                <div class="faq-q">Сколько правок входит в цену?</div>
+            </details>
+            <details class="faq-row">
+                <summary class="faq-q">Сколько правок входит в цену?</summary>
                 <div class="faq-a">До 3 — для картинок и документов, до 5 — для сайта, автоматизации и программы. В соцсетях — до 2 правок плана на месяц и до 1 правки каждого поста до публикации.</div>
-            </div>
-            <div class="faq-row">
-                <div class="faq-q">Опубликуете что-нибудь без меня?</div>
+            </details>
+            <details class="faq-row">
+                <summary class="faq-q">Опубликуете что-нибудь без меня?</summary>
                 <div class="faq-a">Нет. Без вашего разрешения ничего не выходит.</div>
-            </div>
-            <div class="faq-row">
-                <div class="faq-q">А если задача не получится?</div>
+            </details>
+            <details class="faq-row">
+                <summary class="faq-q">А если задача не получится?</summary>
                 <div class="faq-a">Скажу сразу — ещё до оплаты, а не после.</div>
-            </div>
-            <div class="faq-row">
-                <div class="faq-q">Работаете с другими городами?</div>
+            </details>
+            <details class="faq-row">
+                <summary class="faq-q">Работаете с другими городами?</summary>
                 <div class="faq-a">Да. Вся работа идёт онлайн, город не важен.</div>
-            </div>
+            </details>
         </div>
         <div class="nopromise">
             <div class="nopromise-title">Чего я не обещаю</div>
