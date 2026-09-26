@@ -250,6 +250,17 @@ footer.f-dark .mono, footer.f-ink .mono { color:#9FB0C2; }
     .mbar .btn + .btn { background:var(--paper); color:var(--ink); }
     footer { padding-bottom:110px; }
 }
+
+/* услуги плитками — только на широком экране; на телефоне остаётся список */
+@media (min-width:601px) {
+    .svc { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .svc .svc-row, .svc .svc-row:first-child { display:flex; flex-direction:column; align-items:stretch; gap:0; padding:26px 24px 22px;
+        background:#fff; border:1px solid #D3DDE8; border-top:3px solid var(--steel); }
+    .svc .svc-name { order:1; font-size:20px; margin-bottom:10px; }
+    .svc .svc-desc { order:2; flex:1; margin-bottom:22px; }
+    .svc .svc-price { order:3; padding-top:14px; border-top:1px dashed var(--line); font-size:17px; }
+}
+@media (min-width:601px) and (max-width:860px) { .svc { grid-template-columns:repeat(2,1fr); } }
 </style>
 
     <!-- Yandex.Metrika counter -->
