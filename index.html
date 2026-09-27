@@ -11,17 +11,23 @@
     <meta property="og:title" content="Полина Лаптева — системы против рутины">
     <meta property="og:description" content="Документы, картинки, посты, сайты и небольшие программы — с помощью нейросетей. Рутину забирает машина, вам остаётся ваша работа.">
     <meta property="og:url" content="https://polinalapteva85-stack.github.io/vizitka/">
-    <meta property="og:image" content="https://polinalapteva85-stack.github.io/vizitka/preview.png">
+    <meta property="og:image" content="https://polinalapteva85-stack.github.io/vizitka/preview.png?v=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="vk:image" content="https://polinalapteva85-stack.github.io/vizitka/preview.png">
+    <meta property="vk:image" content="https://polinalapteva85-stack.github.io/vizitka/preview.png?v=3">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/golos-text-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
     <style>
+        /* шрифты лежат на самом сайте (папка fonts/), к Google браузер не обращается */
+        @font-face { font-family:'Golos Text'; font-style:normal; font-weight:400 600; font-display:swap; src:url(fonts/golos-text-cyrillic.woff2) format('woff2'); unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+        @font-face { font-family:'Golos Text'; font-style:normal; font-weight:400 600; font-display:swap; src:url(fonts/golos-text-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face { font-family:'Golos Text'; font-style:normal; font-weight:400 600; font-display:swap; src:url(fonts/golos-text-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face { font-family:'Roboto Mono'; font-style:normal; font-weight:400 500; font-display:swap; src:url(fonts/roboto-mono-cyrillic.woff2) format('woff2'); unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+        @font-face { font-family:'Roboto Mono'; font-style:normal; font-weight:400 500; font-display:swap; src:url(fonts/roboto-mono-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face { font-family:'Roboto Mono'; font-style:normal; font-weight:400 500; font-display:swap; src:url(fonts/roboto-mono-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
         :root {
             --ink: #1E242C;
             --steel: #2F5D8C;
@@ -44,7 +50,7 @@
         }
         .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
         .mono {
-            font-family: 'Roboto Mono', ui-monospace, monospace;
+            font-family: 'Roboto Mono', 'Golos Text', ui-monospace, monospace;
             font-size: 13px;
             letter-spacing: .14em;
             text-transform: uppercase;
@@ -65,7 +71,7 @@
         .hero-photo { position: relative; justify-self: end; width: min(420px, 100%); }
         .hero-photo::before { content: ''; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--steel); }
         .hero-photo img { position: relative; width: 100%; height: auto; display: block; aspect-ratio: 1 / 1; object-fit: cover; }
-        .hero-also { margin-top: 18px; font-family: 'Roboto Mono', monospace; font-size: 13px; color: var(--muted); }
+        .hero-also { margin-top: 18px; font-family: 'Roboto Mono', 'Golos Text', monospace; font-size: 13px; color: var(--muted); }
         .hero-also a { color: var(--steel); text-decoration: none; border-bottom: 1px dashed var(--line); }
         .hero-also a:hover { border-bottom-color: var(--steel); }
         h1 {
@@ -101,7 +107,7 @@
         .about { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center;
                  background: var(--card); border: 1px solid var(--line); padding: 36px 40px; }
         .about-name { margin: 0 0 4px; }
-        .about-role { font-family: 'Roboto Mono', monospace; font-size: 14px; color: var(--steel); padding-bottom: 18px; margin-bottom: 22px; border-bottom: 2px solid var(--line); display: inline-block; }
+        .about-role { font-family: 'Roboto Mono', 'Golos Text', monospace; font-size: 14px; color: var(--steel); padding-bottom: 18px; margin-bottom: 22px; border-bottom: 2px solid var(--line); display: inline-block; }
         .about-hook { font-size: 20px; line-height: 1.5; color: var(--ink); border-left: 3px solid var(--steel); padding-left: 18px; margin: 0 0 20px; }
         .about-text p { color: var(--muted); margin: 0 0 14px; }
         .about-text p.about-hook { color: var(--ink); }
@@ -119,7 +125,7 @@
         .svc-name { font-weight: 600; font-size: 22px; line-height: 1.3; }
         .svc-desc { grid-column: 1 / -1; color: var(--muted); font-size: 16px; }
         .svc-price {
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Roboto Mono', 'Golos Text', monospace;
             font-size: 17px;
             font-weight: 500;
             color: var(--steel);
@@ -131,7 +137,7 @@
                 display: block; }
         .work img { width: 100%; height: auto; display: block; }
         .work-body { padding: 26px 28px 30px; }
-        .work-task { font-family: 'Roboto Mono', monospace; font-size: 13px; letter-spacing: .03em; color: var(--steel); line-height: 1.5; }
+        .work-task { font-family: 'Roboto Mono', 'Golos Text', monospace; font-size: 13px; letter-spacing: .03em; color: var(--steel); line-height: 1.5; }
         .work-body h3 { margin: 8px 0 12px; font-size: 22px; font-weight: 600; line-height: 1.3; }
         .work-done { font-weight: 600; margin: 4px 0 6px; }
         .work-list { margin: 0 0 14px; padding-left: 20px; color: var(--muted); }
@@ -144,7 +150,7 @@
         .steps { display: grid; gap: 22px; }
         .step { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; }
         .step-num {
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Roboto Mono', 'Golos Text', monospace;
             font-size: 14px;
             color: var(--steel);
             border: 1px solid var(--line);
@@ -162,7 +168,7 @@
         .faq-q { font-weight: 600; font-size: 19px; line-height: 1.35; margin-bottom: 6px; }
         .faq-a { color: var(--muted); font-size: 16px; }
         .nopromise { margin-top: 36px; background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--steel); padding: 22px 26px; }
-        .nopromise-title { font-family: 'Roboto Mono', monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--steel); margin-bottom: 8px; }
+        .nopromise-title { font-family: 'Roboto Mono', 'Golos Text', monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--steel); margin-bottom: 8px; }
         .nopromise p { margin: 0; }
 
         .form-box { background: var(--card); border: 1px solid var(--line); padding: 34px 30px; }
@@ -299,13 +305,13 @@ body.cookie-open .mbar { display:none; }
 .ba-side { padding:44px 40px 46px; }
 .ba-was { background:var(--paper); }
 .ba-now { background:var(--deep, #223F5C); color:#fff; }
-.ba-tag { font-family:'Roboto Mono', monospace; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
+.ba-tag { font-family:'Roboto Mono', 'Golos Text', monospace; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
 .ba-now .ba-tag { color:#8FB6DD; }
 .ba-big { font-size:24px; line-height:1.4; margin:0 0 24px; color:var(--muted); }
 .ba-big b { color:var(--ink); font-weight:600; }
 .ba-now .ba-big { color:#E6EDF5; }
 .ba-now .ba-big b { color:#fff; }
-.ba-files { list-style:none; padding:0; margin:0 0 24px; font-family:'Roboto Mono', monospace; font-size:15px; line-height:1.9; color:#646E79; }
+.ba-files { list-style:none; padding:0; margin:0 0 24px; font-family:'Roboto Mono', 'Golos Text', monospace; font-size:15px; line-height:1.9; color:#646E79; }
 .ba-now .ba-files { color:#fff; }
 .ba-note { margin:0; font-size:17px; color:var(--muted); }
 .ba-now .ba-note { color:#8FB6DD; }
@@ -321,7 +327,7 @@ body.cookie-open .mbar { display:none; }
 
 h2 { font-size:34px; line-height:1.15; margin-bottom:34px; }
 .about-name { font-size:34px; }
-.kicker { font-family:'Roboto Mono', monospace; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--steel); margin-bottom:10px;
+.kicker { font-family:'Roboto Mono', 'Golos Text', monospace; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--steel); margin-bottom:10px;
           display:flex; align-items:center; gap:12px; }
 .kicker::after { content:''; flex:0 0 56px; height:2px; background:var(--steel); }
 .b-dark .kicker, .b-ink .kicker { color:#8FB6DD; }
@@ -378,9 +384,80 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 .review img { width:72px; height:72px; border-radius:50%; object-fit:cover; display:block; }
 .review q { quotes:none; display:block; font-size:19px; line-height:1.6; color:#1E242C; margin:0 0 18px; }
 .review-name { font-weight:600; }
-.review-org { font-family:'Roboto Mono',monospace; font-size:13px; color:var(--muted); margin-top:2px; }
+.review-org { font-family:'Roboto Mono', 'Golos Text', monospace; font-size:13px; color:var(--muted); margin-top:2px; }
 @media (max-width:600px){ .review{ grid-template-columns:1fr; padding:26px 22px; gap:16px; } .review img{width:60px;height:60px;} }
 .review .emoji { white-space:nowrap; }
+
+/* === правки 27.09 === */
+/* строка «или сразу» под главной кнопкой — светлее, как подзаголовок */
+.hero-also { color:#D5DEE8; }
+.hero-also a { border-bottom:0; text-decoration:underline dashed rgba(255,255,255,.55); text-decoration-thickness:1px; text-underline-offset:4px; }
+.hero-also a:hover { text-decoration-color:#fff; }
+/* на телефоне и планшете у мелких ссылок область нажатия не меньше 44 px (сам текст не растёт) */
+@media (max-width:600px), (pointer:coarse) {
+    .hero-also { font-size:14px; }
+    .hero-also a { display:inline-block; min-width:44px; text-align:center; padding:12px 8px; margin:-12px -4px; }
+    .footer-links a, .legal a, .legal button { display:inline-flex; align-items:center; min-height:44px; min-width:44px; justify-content:center; padding:0 6px; }
+    .footer-links { margin-left:-6px; }
+    .legal { margin-left:-6px; }
+}
+
+/* плашка cookie на телефоне — плотнее, кнопки в ряд высотой 44 px */
+@media (max-width:600px) {
+    .cookie { left:8px; right:8px; bottom:calc(6px + env(safe-area-inset-bottom)); padding:8px 10px; font-size:12px; line-height:1.35; }
+    .cookie p { margin-bottom:6px; }
+    .cookie-btns { flex-wrap:nowrap; gap:8px; }
+    .cookie-btns button { flex:1; min-height:44px; padding:0 10px; }
+    /* портрет по высоте экрана: главная кнопка остаётся над плашкой */
+    .hero { padding-top:24px; align-items:flex-start; }
+    .hero { padding-top:16px; }
+    .hero-in { gap:16px; }
+    .hero-sign { margin-bottom:10px; }
+    .hero h1 { margin-bottom:12px; }
+    .hero .lead { margin-bottom:18px; }
+    .hero-also { margin-top:8px; }
+    .hero-photo { width:auto; }
+    /* высота портрета зависит только от ширины телефона (360 → 221, 390 → 284, 412+ → 330 px), от высоты экрана не уменьшается */
+    .hero-photo img { width:auto; max-width:100%; height:clamp(140px, calc(209vw - 531px), 330px); }
+}
+
+
+.nobr { white-space:nowrap; }
+/* плашка cookie на планшете и компьютере — компактная, в правом нижнем углу (поверх низа портрета, не текста) */
+@media (min-width:601px) {
+    .cookie { left:auto; right:16px; bottom:16px; max-width:400px; margin:0; padding:14px 16px; font-size:14px; line-height:1.45; }
+    .cookie p { margin-bottom:10px; }
+    .cookie-btns { flex-wrap:nowrap; gap:8px; }
+    .cookie-btns button { flex:1; min-height:44px; padding:0 12px; }
+}
+
+/* планшет, ноутбук и компьютер: плашка в левом нижнем углу, под текстом первого экрана, портрет не трогает */
+@media (min-width:601px) {
+    .cookie { left:max(24px, calc(50% - 426px)); right:auto; bottom:14px; width:min(540px, 40vw); max-width:none; margin:0; padding:12px 16px; }
+    .cookie p { margin-bottom:8px; }
+}
+@media (min-width:1000px) and (max-height:820px) {
+    /* на невысоком экране текст первого экрана чуть выше, чтобы плашка встала под ним */
+    .hero { padding-top:48px; }
+    .hero-in > div:first-child { padding-bottom:140px; }
+}
+
+/* планшет и небольшой ноутбук: портрет крупнее и не у самого края, без пустой полосы сверху */
+@media (min-width:601px) and (max-width:1100px) and (orientation:landscape) {
+    .hero { padding-top:40px; }
+    .hero-in { grid-template-columns:1fr auto; gap:32px; margin-right:40px; }
+    .hero-photo { width:auto; }
+    .hero-photo img { width:auto; height:min(80svh, 680px); }
+    h1 br { display:none; }
+}
+@media (min-width:601px) and (max-width:1100px) and (orientation:portrait) {
+    .hero { padding:40px 0 56px; align-items:flex-start; }
+    .hero-in { grid-template-columns:1fr; gap:28px; max-width:640px; margin:0 auto; padding:0 24px; }
+    .hero-in > div:first-child { align-self:start; }
+    .hero-photo { order:-1; justify-self:center; align-self:start; width:auto; margin:0 0 -16px; }
+    .hero-photo img { width:auto; height:max(200px, min(42svh, 560px, calc(100svh - 590px))); }
+    h1 { font-size:40px; }
+}
 </style>
 
     <!-- Yandex.Metrika counter: запускается только после «Принять» в плашке про cookie -->
@@ -468,7 +545,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
                 <div class="svc-desc">Небольшая программа именно под ваш процесс, а не «универсальная» из коробки.</div>
             </div>
         </div>
-        <p class="svc-note">Сроки называю после разговора, когда понимаю объём. Кроме картинок — их обычно отдаю в тот же день.</p>
+        <p class="svc-note">Точные сроки называю после разговора, когда понимаю объём работы.</p>
     </div>
 </section>
 
@@ -492,7 +569,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
                     <li>три варианта оформления на выбор.</li>
                 </ul>
                 <p>Цену за такую работу называю после разговора.</p>
-                <p><a class="more" href="ikar.html">Посмотреть, как делалась эта работа →</a></p>
+                <p><a class="more" href="ikar.html">Посмотреть, как делалась эта работа&nbsp;→</a></p>
             </div>
         </article>
 
@@ -511,7 +588,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
                 <ul class="work-list">
                     <li>смотрит статистику сообщества: охват, лайки, репосты;</li>
                     <li>придумывает посты в&nbsp;нужном настроении и&nbsp;стиле, сторис и&nbsp;план на&nbsp;неделю;</li>
-                    <li>публикует посты с&nbsp;картинками в&nbsp;ВКонтакте&nbsp;— сразу или в&nbsp;отложенные.</li>
+                    <li>публикует посты с&nbsp;картинками во&nbsp;ВКонтакте&nbsp;— сразу или в&nbsp;отложенные.</li>
                 </ul>
                 <p>Такую программу можно собрать и&nbsp;под ваше дело.</p>
             </div>
@@ -553,7 +630,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 <section class="b-pale" id="otzyvy">
     <div class="wrap">
         <div class="kicker">04 · Отзывы</div>
-        <h2>Что говорят заказчики</h2>
+        <h2>Что говорит заказчица</h2>
         <div class="review">
             <img src="ikar-logo.jpg" alt="Логотип спортивной школы «Икар»" width="72" height="72" loading="lazy">
             <div>
@@ -594,7 +671,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
-                <div><b>Вы рассказываете задачу</b><span>В ВКонтакте или MAX — кнопки ниже. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
+                <div><b>Вы рассказываете задачу</b><span>Во ВКонтакте или в MAX — кнопки ниже. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
@@ -663,7 +740,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
         <h2>Расскажите про свою задачу</h2>
         <div class="form-box">
             <p class="contact-note">Напишите, где вам удобнее: коротко, что отнимает у вас время. Отвечу в течение дня.</p>
-            <p class="contact-note">В ВКонтакте вы попадёте в сообщество «НейроАтелье» — это я.</p>
+            <p class="contact-note">Кнопка «ВКонтакте» ведёт в сообщество «НейроАтелье» — это я.</p>
             <div class="contact-btns">
                 <a href="https://vk.me/club180882670" target="_blank" rel="noopener" class="btn" data-goal="contact_vk">ВКонтакте</a>
                 <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener" class="btn" data-goal="contact_max">MAX</a>            </div>
@@ -681,7 +758,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
         </div>
         <div class="footer-links"><a href="https://vk.me/club180882670" target="_blank" rel="noopener">ВКонтакте</a> · <a href="https://max.ru/u/f9LHodD0cOLbRDzkaCRKtnARq0aQEEpvQDtE61lu6AmRW5K1Q2xJ9WOnXO8" target="_blank" rel="noopener">MAX</a></div>
     </div>
-    <div class="wrap legal"><a href="politika.html">Политика конфиденциальности</a> · <button type="button" id="cookie-settings">Настройки cookie</button></div>
+    <div class="wrap legal"><a href="politika.html">Политика конфиденциальности</a> <span class="nobr">·&nbsp;<button type="button" id="cookie-settings">Настройки cookie</button></span></div>
 </footer>
 
 <div class="mbar" aria-label="Написать мне"><span class="mbar-t">Написать мне:</span>
@@ -729,6 +806,19 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
             var was = get(); set('no'); hide();
             if (was === 'yes') location.reload();
         };
+        // на широком экране плашка встаёт ровно под колонку текста первого экрана
+        function place() {
+            var col = document.querySelector('.hero-in > div');
+            if (window.innerWidth >= 601 && col) {
+                var r = col.getBoundingClientRect();
+                box.style.left = Math.round(r.left) + 'px';
+                box.style.width = Math.round(Math.min(560, r.width)) + 'px';
+            } else { box.style.left = ''; box.style.width = ''; }
+        }
+        window.addEventListener('resize', place);
+        window.addEventListener('load', place);
+        var ph = document.querySelector('.hero-photo img'); if (ph) ph.addEventListener('load', place);
+        var show0 = show; show = function () { show0(); place(); };
         document.getElementById('cookie-settings').onclick = show;
         if (!get()) show();
     })();

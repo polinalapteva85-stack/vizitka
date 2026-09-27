@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Политика конфиденциальности — Полина Лаптева</title>
     <meta name="robots" content="noindex">
+    <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        /* шрифты лежат на самом сайте (папка fonts/), к Google браузер не обращается */
+        @font-face { font-family:'Golos Text'; font-style:normal; font-weight:400 600; font-display:swap; src:url(fonts/golos-text-cyrillic.woff2) format('woff2'); unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+        @font-face { font-family:'Golos Text'; font-style:normal; font-weight:400 600; font-display:swap; src:url(fonts/golos-text-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face { font-family:'Golos Text'; font-style:normal; font-weight:400 600; font-display:swap; src:url(fonts/golos-text-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face { font-family:'Roboto Mono'; font-style:normal; font-weight:400 500; font-display:swap; src:url(fonts/roboto-mono-cyrillic.woff2) format('woff2'); unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+        @font-face { font-family:'Roboto Mono'; font-style:normal; font-weight:400 500; font-display:swap; src:url(fonts/roboto-mono-latin-ext.woff2) format('woff2'); unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+        @font-face { font-family:'Roboto Mono'; font-style:normal; font-weight:400 500; font-display:swap; src:url(fonts/roboto-mono-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
         :root { --ink:#1E242C; --steel:#2F5D8C; --paper:#FAF7F2; --line:#C7CFD8; --muted:#55606D; }
         * { box-sizing: border-box; }
         body { margin:0; font-family:'Golos Text', system-ui, sans-serif; background:var(--paper); color:var(--ink);
                font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; overflow-wrap:break-word; }
         .wrap { max-width:760px; margin:0 auto; padding:48px 24px 72px; }
-        .mono { font-family:'Roboto Mono', monospace; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+        .mono { font-family:'Roboto Mono', 'Golos Text', monospace; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
         a { color:var(--steel); }
-        .back { font-family:'Roboto Mono', monospace; font-size:14px; text-decoration:none; }
+        .back { font-family:'Roboto Mono', 'Golos Text', monospace; font-size:14px; text-decoration:none; }
         h1 { font-size:30px; line-height:1.2; margin:28px 0 8px; }
         h2 { font-size:20px; margin:36px 0 10px; }
         p, li { color:var(--muted); }
@@ -27,18 +32,20 @@
         .stitch { height:1px; border:0; margin:28px 0 0;
                   background-image:repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 12px); }
         @media (max-width:600px) { body { font-size:16px; } h1 { font-size:25px; } .wrap { padding-top:32px; } }
+        /* ссылка «На главную»: область нажатия не меньше 44 px на телефоне */
+        @media (max-width:600px), (pointer:coarse) { .back { display:inline-block; padding:13px 12px 13px 0; margin:-13px 0; } }
     </style>
 </head>
 <body>
 <div class="wrap">
     <a class="back" href="./">← На главную</a>
     <h1>Политика конфиденциальности</h1>
-    <div class="mono">Действует с 26 сентября 2026 года</div>
+    <div class="mono">Действует с 27 сентября 2026 года</div>
     <hr class="stitch">
 
     <h2>1. Кто отвечает за данные</h2>
     <p>Сайт polinalapteva85-stack.github.io/vizitka принадлежит Полине Лаптевой (далее — «я»). Я отвечаю за обработку персональных данных посетителей сайта в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
-    <p>Связаться со мной по любому вопросу о ваших данных можно через сообщения сообщества «НейроАтелье» в ВКонтакте: <a href="https://vk.me/club180882670" target="_blank" rel="noopener">vk.me/club180882670</a>.</p>
+    <p>Связаться со мной по любому вопросу о ваших данных можно через сообщения сообщества «НейроАтелье» во ВКонтакте: <a href="https://vk.me/club180882670" target="_blank" rel="noopener">vk.me/club180882670</a>.</p>
 
     <h2>2. Какие данные собираются</h2>
     <p>На сайте нет форм, и я не прошу вводить имя, телефон или почту. Собираются только технические данные — и только если вы нажали «Принять» в сообщении о файлах cookie:</p>
@@ -49,7 +56,7 @@
     </ul>
     <p>Эти данные собирает сервис Яндекс Метрика (ООО «Яндекс»). Запись действий на странице (Вебвизор) выключена.</p>
     <p>Видео на сайте показывается плеером ВКонтакте. Плеер загружается, только когда вы нажмёте «Смотреть видео»; после этого ВКонтакте может сохранить свои файлы cookie по своим правилам.</p>
-    <p>Если вы пишете мне в ВКонтакте или MAX, переписка идёт на этих платформах по их правилам. Я вижу то, что вы сами сообщили: имя в профиле и текст сообщения — и использую это только чтобы ответить вам и обсудить вашу задачу.</p>
+    <p>Если вы пишете мне во ВКонтакте или в MAX, переписка идёт на этих платформах по их правилам. Я вижу то, что вы сами сообщили: имя в профиле и текст сообщения — и использую это только чтобы ответить вам и обсудить вашу задачу.</p>
 
     <h2>3. Зачем</h2>
     <ul>
@@ -63,7 +70,8 @@
     <p>Ваше согласие. Для статистики вы даёте его, нажимая «Принять» в сообщении о файлах cookie. Если нажать «Отказаться», Яндекс Метрика на сайте не запускается. Для переписки — ваше собственное обращение ко мне.</p>
 
     <h2>5. Кому передаются данные</h2>
-    <p>Только ООО «Яндекс» — как сервису, который считает статистику. Данные хранятся на серверах в России. Правила Яндекса: <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a>.</p>
+    <p>Статистику считает ООО «Яндекс» — сервис Яндекс Метрика. Правила Яндекса: <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a>.</p>
+    <p>Яндекс Метрика может передавать обезличенные идентификаторы из файлов cookie своим партнёрам, в том числе иностранным (например, Google). Это происходит по правилам Яндекса и только после того, как вы нажали «Принять». Если нажать «Отказаться», Метрика не запускается и такой передачи нет.</p>
 
     <h2>6. Сколько хранятся</h2>
     <p>Файлы cookie Метрики живут в вашем браузере до одного года, если вы не удалите их раньше. Статистика хранится в Яндекс Метрике по правилам сервиса. Переписку я храню, пока идёт работа над вашей задачей, и удаляю по вашей просьбе.</p>
@@ -74,7 +82,7 @@
         <li>узнать, какие ваши данные у меня есть, попросить их исправить или удалить;</li>
         <li>пожаловаться в Роскомнадзор, если считаете, что ваши права нарушены.</li>
     </ul>
-    <p>Чтобы воспользоваться правами, напишите мне в сообщения сообщества в ВКонтакте. Отвечу в течение 10 рабочих дней.</p>
+    <p>Чтобы воспользоваться правами, напишите мне в сообщения сообщества во ВКонтакте. Отвечу в течение 10 рабочих дней.</p>
 
     <h2>8. Изменения</h2>
     <p>Если политика поменяется, новая версия появится на этой странице с новой датой вверху.</p>
