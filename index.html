@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Golos+Text:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --ink: #1E242C;
@@ -69,12 +69,12 @@
         .hero-also a { color: var(--steel); text-decoration: none; border-bottom: 1px dashed var(--line); }
         .hero-also a:hover { border-bottom-color: var(--steel); }
         h1 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Golos Text', system-ui, -apple-system, 'Segoe UI', sans-serif;
             font-weight: 600;
-            font-size: clamp(30px, 3.9vw, 54px);
-            line-height: 1.08;
+            font-size: clamp(28px, 3.3vw, 46px);
+            line-height: 1.12;
             margin: 0 0 24px;
-            letter-spacing: -.01em;
+            letter-spacing: -.02em;
         }
         .lead { font-size: 19px; color: var(--muted); max-width: 660px; margin: 0 0 34px; }
         .btn {
@@ -373,6 +373,14 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 .clip-label::before { content:''; width:0; height:0; border-left:12px solid #fff; border-top:8px solid transparent; border-bottom:8px solid transparent; }
 .clip-poster:hover .clip-label { background:#26496E; }
 @media (max-width:600px) { .clip-poster, .clip iframe { width:100%; max-width:320px; height:auto; aspect-ratio:9/16; } }
+/* отзывы */
+.review { background:var(--card); border:1px solid var(--line); padding:32px 36px; display:grid; grid-template-columns:72px 1fr; gap:24px; align-items:start; }
+.review img { width:72px; height:72px; border-radius:50%; object-fit:cover; display:block; }
+.review q { quotes:none; display:block; font-size:19px; line-height:1.6; color:#1E242C; margin:0 0 18px; }
+.review-name { font-weight:600; }
+.review-org { font-family:'Roboto Mono',monospace; font-size:13px; color:var(--muted); margin-top:2px; }
+@media (max-width:600px){ .review{ grid-template-columns:1fr; padding:26px 22px; gap:16px; } .review img{width:60px;height:60px;} }
+.review .emoji { white-space:nowrap; }
 </style>
 
     <!-- Yandex.Metrika counter: запускается только после «Принять» в плашке про cookie -->
@@ -410,7 +418,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 
 <section class="b-paper">
     <div class="wrap">
-        <div class="kicker">01 ·  чем приходят</div>
+        <div class="kicker">01 · С чем приходят</div>
         <h2>Знакомо?</h2>
         <ul class="needs">
             <li>Каждый раз вручную собираете одно и то же — прайс, договор, отчёт, пост.</li>
@@ -542,9 +550,26 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 
 <hr class="stitch">
 
+<section class="b-pale" id="otzyvy">
+    <div class="wrap">
+        <div class="kicker">04 · Отзывы</div>
+        <h2>Что говорят заказчики</h2>
+        <div class="review">
+            <img src="ikar-logo.jpg" alt="Логотип спортивной школы «Икар»" width="72" height="72" loading="lazy">
+            <div>
+                <q>Хочу выразить благодарность от&nbsp;имени футбольной команды спортивной школы «Икар» за&nbsp;разработку и&nbsp;дизайн командной формы. Рады были работать с&nbsp;вами! Всё быстро и&nbsp;соответствует нашим <span class="emoji">потребностям 🏆🤝</span></q>
+                <div class="review-name">Елена Ломакина</div>
+                <div class="review-org">спортивная школа «Икар» (Саров)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="stitch">
+
 <section class="b-dark" id="o-sebe">
     <div class="wrap">
-        <div class="kicker">04 ·  себе</div>
+        <div class="kicker">05 · О себе</div>
         <div class="about">
             <div class="about-text">
                 <h2 class="about-name">Полина Лаптева</h2>
@@ -564,12 +589,12 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 
 <section class="b-pale">
     <div class="wrap">
-        <div class="kicker">05 · Порядок работы</div>
+        <div class="kicker">06 · Порядок работы</div>
         <h2>Как мы поработаем</h2>
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
-                <div><b>Вы рассказываете задачу</b><span> ВКонтакте или MAX — кнопки ниже. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
+                <div><b>Вы рассказываете задачу</b><span>В ВКонтакте или MAX — кнопки ниже. Подробности не нужны — достаточно объяснить, что отнимает время.</span></div>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
@@ -591,7 +616,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 
 <section class="b-paper" id="voprosy">
     <div class="wrap">
-        <div class="kicker">06 · Вопросы</div>
+        <div class="kicker">07 · Вопросы</div>
         <h2>Частые вопросы</h2>
         <div class="faq">
             <details class="faq-row">
@@ -624,7 +649,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
             </details>
         </div>
         <div class="nopromise">
-            <div class="nopromise-title">Чего  не обещаю</div>
+            <div class="nopromise-title">Чего я не обещаю</div>
             <p>Не заменяю вас в общении с вашими клиентами. Рутину забираю я, а разговор с людьми остаётся за вами.</p>
         </div>
     </div>
@@ -634,7 +659,7 @@ details.faq-row .faq-a { padding:0 40px 20px 0; margin-top:-6px; }
 
 <section class="b-dark" id="zayavka">
     <div class="wrap">
-        <div class="kicker">07 · Связь</div>
+        <div class="kicker">08 · Связь</div>
         <h2>Расскажите про свою задачу</h2>
         <div class="form-box">
             <p class="contact-note">Напишите, где вам удобнее: коротко, что отнимает у вас время. Отвечу в течение дня.</p>
